@@ -1,6 +1,8 @@
 #!/usr/bin/env sh
 set -eu
 
+sh -c "git config --global --add safe.directory $PWD"
+
 /setup-ssh.sh
 
 export GIT_SSH_COMMAND="ssh -v -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -l $INPUT_SSH_USERNAME"
