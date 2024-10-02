@@ -10,9 +10,9 @@ git remote add mirror "$INPUT_TARGET_REPO_URL"
 
 mkdir -p .$INPUT_TARGET_SUBDIRECTORY
 mv * .$INPUT_TARGET_SUBDIRECTORY
-mv .$INPUT_TARGET_SUBDIRECTORY/.git .
-mv .$INPUT_TARGET_SUBDIRECTORY/.github .
 mv .$INPUT_TARGET_SUBDIRECTORY $INPUT_TARGET_SUBDIRECTORY
+mv $INPUT_TARGET_SUBDIRECTORY/.git .
+mv $INPUT_TARGET_SUBDIRECTORY/.github .
 
 git push --tags --force --prune mirror "refs/remotes/origin/$INPUT_TARGET_SUBDIRECTORY/*:refs/heads/*"
 
