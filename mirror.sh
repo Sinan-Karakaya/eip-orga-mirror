@@ -12,7 +12,8 @@ mkdir -p .$INPUT_TARGET_SUBDIRECTORY
 mv * .$INPUT_TARGET_SUBDIRECTORY
 mv .$INPUT_TARGET_SUBDIRECTORY $INPUT_TARGET_SUBDIRECTORY
 
-git push --tags --force --prune mirror "refs/remotes/origin/$INPUT_TARGET_SUBDIRECTORY/*:refs/heads/*"
+git subtree push --prefix=$INPUT_TARGET_SUBDIRECTORY mirror main
+#git push --tags --force --prune mirror "refs/remotes/origin/$INPUT_TARGET_SUBDIRECTORY/*:refs/heads/*"
 
 # NOTE: Since `post` execution is not supported for local action from './' for now, we need to
 # run the command by hand.
