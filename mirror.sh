@@ -2,7 +2,6 @@
 set -eu
 
 sh -c "git config --global --add safe.directory $PWD"
-sh -c "shopt -s extglob"
 
 /setup-ssh.sh
 
