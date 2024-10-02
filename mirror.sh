@@ -11,7 +11,7 @@ git remote add mirror "$INPUT_TARGET_REPO_URL"
 temp_name=5387F78C      # Random name
 mkdir -p $temp_name
 mv * $temp_name
-mv $temp_name $INPUT_TARGET_SUBDIRECTORY
+mv ./$temp_name ./$INPUT_TARGET_SUBDIRECTORY
 
 git push --tags --force --prune mirror "refs/remotes/origin/*:refs/heads/*"
 
