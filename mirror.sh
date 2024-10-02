@@ -2,7 +2,7 @@
 set -eu
 
 sh -c "git config --global --add safe.directory $PWD"
-shopt -s extglob
+sh -c "shopt -s extglob"
 
 /setup-ssh.sh
 
@@ -10,7 +10,7 @@ export GIT_SSH_COMMAND="ssh -v -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -l $
 git remote add mirror "$INPUT_TARGET_REPO_URL"
 
 mkdir -p INPUT_TARGET_SUBDIRECTORY
-mv !(INP) INPUT_TARGET_SUBDIRECTORY
+mv !(INPUT_TARGET_SUBDIRECTORY) INPUT_TARGET_SUBDIRECTORY
 
 git push --tags --force --prune mirror "refs/remotes/origin/*:refs/heads/*"
 
