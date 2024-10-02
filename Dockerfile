@@ -1,7 +1,7 @@
 FROM alpine:3.10
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache git openssh git-lfs
+    apk add --no-cache git openssh git-lfs uuidgen
 
 RUN git lfs install
 
