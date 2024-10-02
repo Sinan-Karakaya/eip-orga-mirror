@@ -9,8 +9,9 @@ sh -c "shopt -s extglob"
 export GIT_SSH_COMMAND="ssh -v -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no -l $INPUT_SSH_USERNAME"
 git remote add mirror "$INPUT_TARGET_REPO_URL"
 
-mkdir -p INPUT_TARGET_SUBDIRECTORY
-mv !(INPUT_TARGET_SUBDIRECTORY) INPUT_TARGET_SUBDIRECTORY
+mkdir -p .$INPUT_TARGET_SUBDIRECTORY
+mv * .$INPUT_TARGET_SUBDIRECTORY
+mv .$INPUT_TARGET_SUBDIRECTORY $INPUT_TARGET_SUBDIRECTORY
 
 git push --tags --force --prune mirror "refs/remotes/origin/*:refs/heads/*"
 
